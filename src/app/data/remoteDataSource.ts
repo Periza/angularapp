@@ -5,39 +5,36 @@ import { map } from "rxjs/operators";
 import { DataSourceImpl } from "./dataSource";
 import { Product, Order } from "./entities";
 
-
 const protocol = "http";
 const hostname = "locahost";
 const port = 4600;
 
 const urls = {
-    products: `${protocol}://${hostname}:${port}/products`,
-    orders: `${protocol}://${hostname}:${port}/orders`
+  products: `${protocol}://${hostname}:${port}/products`,
+  orders: `${protocol}://${hostname}:${port}/orders`
 };
 
 @Injectable()
 export class RemoteDataSource extends DataSourceImpl {
+  constructor(private http: HttpClient) {
+    super();
+  }
 
-    constructor(private http: HttpClient) {
-        super();
-    }
+  override loadProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(urls.products);
+  }
 
-    override loadProducts(): Observable<Product[]> {
-        return this.http.get<Product[]>(urls.products);
-    }
+  override storeOrder(order: Order): Observable<number> {
+    let orderData = {
+      lines: [...order.orderLines.values()].map((ol) => ({
+        productId: ol.product.id,
+        productName: ol.product.name,
+        quantity: ol.quantity
+      }))
+    };
 
-
-    override storeOrder(order: Order): Observable<number> {
-        let orderData = {
-            lines: [...order.orderLines.values()].map(ol => ({
-                productId: ol.product.id,
-                productName: ol.product.name,
-                quantity: ol.quantity
-            }))
-        }
-
-        return this.http.post<{ id: number }>(urls.orders, orderData)
-                            .pipe<number>(map(val => val.id));
-    }
-    
+    return this.http
+      .post<{ id: number }>(urls.orders, orderData)
+      .pipe<number>(map((val) => val.id));
+  }
 }

@@ -4,7 +4,7 @@ import { DataSource, DataSourceImpl } from "./dataSource";
 import { RemoteDataSource } from "./remoteDataSource";
 
 @NgModule({
-    imports: [HttpClientModule],
-    providers: [DataSource, { provide: DataSourceImpl, useClass: RemoteDataSource}]
+  imports: [HttpClientModule],
+  providers: [DataSource, { provide: DataSourceImpl, useClass: RemoteDataSource }]
 })
-export class DataModelModule {};
+export class DataModelModule {}
