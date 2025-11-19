@@ -6,7 +6,7 @@ import { DataSourceImpl } from "./dataSource";
 import { Product, Order } from "./entities";
 
 const protocol = "http";
-const hostname = "locahost";
+const hostname = "localhost";
 const port = 4600;
 
 const urls = {

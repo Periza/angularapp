@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "category-list",
-  templateUrl: "./categoryListr.component.html"
+  templateUrl: "./categoryList.component.html"
 })
 export class CategoryList {
   @Input()
