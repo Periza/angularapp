@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { DataModelModule } from "./data/data.module";
-import { ProductItem } from './productItem.component';
+import { ProductItem } from "./productItem.component";
 import { CategoryList } from "./categoryList.component";
 import { Header } from "./header.component";
 import { ProductList } from "./productList.component";
