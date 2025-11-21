@@ -4,7 +4,7 @@ const history = require("connect-history-api-fallback");
 
 const app = express();
 app.use(history());
-app.use("/", express.static("dist/angularpp"));
+app.use("/", express.static("dist/angularapp"));
 
 const router = jsonServer.router("data.json");
 app.use(jsonServer.bodyParser);
