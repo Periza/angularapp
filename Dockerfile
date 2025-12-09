@@ -2,7 +2,7 @@ FROM node:18.14.0
 
 RUN mkdir -p /usr/src/angularapp
 
-COPY dist /usr/src/angularapp/dist/
+COPY dist /usr/src/angularpp/dist/
 COPY data.json /usr/src/angularpp/
 COPY server.js /usr/src/angularpp/
 COPY deploy-package.json /usr/src/angularpp/package.json

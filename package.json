@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "json": "json-server data.js -p 4600",
-    "serve": "ng serve",
+    "serve": "react-scripts start",
     "start": "npm-run-all -p serve json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
